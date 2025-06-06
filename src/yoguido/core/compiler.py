@@ -2592,8 +2592,7 @@ class YoGuidoApp {
         console.log("✅ Component tree rendering complete");
         console.log(`🎯 Registered ${this.buttonHandlers.size} button handlers`);
     }
-    
-    createElement(componentData) {
+      createElement(componentData) {
         const { type, id, props, handlers } = componentData;
         
         switch (type) {
@@ -2603,6 +2602,8 @@ class YoGuidoApp {
                 return this.createText(id, props);
             case 'button':
                 return this.createButton(id, props, handlers);
+            case 'icon':
+                return this.createIcon(id, props);
             case 'container':
                 return this.createContainer(id, props, componentData.children || []);
             case 'input_text':
@@ -2629,12 +2630,41 @@ class YoGuidoApp {
         element.className = props.class_name || 'text-2xl font-bold text-gray-900 mb-4';
         return element;
     }
-    
-    createText(id, props) {
+      createText(id, props) {
         const element = document.createElement('p');
         element.id = id;
         element.textContent = props.content || '';
         element.className = props.class_name || 'text-gray-600 mb-2';
+        return element;
+    }
+    
+    createIcon(id, props) {
+        console.log(`🎨 Creating icon: ${id}`, props);
+        
+        const element = document.createElement('i');
+        element.id = id;
+        
+        // Build Phosphor icon classes
+        const iconName = props.name || 'circle';
+        const weight = props.weight || 'regular';
+        
+        let iconClasses = '';
+        if (weight === 'regular') {
+            iconClasses = `ph ph-${iconName}`;
+        } else {
+            iconClasses = `ph-${weight} ph-${iconName}`;
+        }
+        
+        // Merge with existing class_name if provided
+        const existingClasses = props.class_name || '';
+        element.className = existingClasses ? `${iconClasses} ${existingClasses}` : iconClasses;
+        
+        // Apply size styling if provided
+        if (props.size) {
+            element.style.fontSize = props.size;
+        }
+        
+        console.log(`✅ Icon created: ${iconName} (${weight}) with classes: ${element.className}`);
         return element;
     }
     

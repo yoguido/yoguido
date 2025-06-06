@@ -110,6 +110,44 @@ def text(content: str, **kwargs) -> UIElement:
     print(f"✅ text element created and added")
     return element
 
+def icon(name: str, weight: str = "regular", size: Optional[str] = None, **kwargs) -> UIElement:
+    """
+    Render a Phosphor icon
+    
+    Args:
+        name: The icon name (e.g., 'house', 'user', 'heart')
+        weight: Icon weight - 'thin', 'light', 'regular', 'bold', 'fill', 'duotone'
+        size: Optional size (e.g., '16px', '1.5rem', '24') - if not provided, uses CSS
+        **kwargs: Additional props like class_name, style, etc.
+    
+    Returns:
+        UIElement: The icon element
+    """
+    print(f"🎨 icon() called: name='{name}', weight='{weight}', size={size}")
+    
+    # Build the Phosphor icon class name
+    icon_class = f"ph ph-{name}"
+    if weight != "regular":
+        icon_class = f"ph-{weight} ph-{name}"
+    
+    # Merge icon class with any provided class_name
+    existing_class = kwargs.get('class_name', '')
+    if existing_class:
+        kwargs['class_name'] = f"{icon_class} {existing_class}"
+    else:
+        kwargs['class_name'] = icon_class
+    
+    # Add size if provided
+    if size:
+        style = kwargs.get('style', '')
+        size_style = f"font-size: {size};" if not size.endswith('px') and not size.endswith('rem') and not size.endswith('em') else f"font-size: {size};"
+        kwargs['style'] = f"{size_style} {style}".strip()
+    
+    element = UIElement('icon', name=name, weight=weight, size=size, **kwargs)
+    _add_to_current_container(element)
+    print(f"✅ icon element created and added: {icon_class}")
+    return element
+
 # ==================== BASIC INPUT COMPONENTS ====================
 
 def button(label: str, on_click: Optional[Callable] = None, **kwargs) -> bool:

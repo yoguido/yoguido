@@ -12,7 +12,7 @@ from .core.state import use_state
 
 # Basic UI components
 from .ui.basic_components import (
-    title, text, button, 
+    title, text, icon, button, 
     input_text, input_number, select, checkbox, slider,
     container, flex, grid
 )
@@ -51,9 +51,8 @@ from .pages.routing import (
 __all__ = [
     # Core
     'YoGuidoApp', 'component', 'state', 'computed', 'use_state',
-    
-    # Basic UI
-    'title', 'text', 'button', 'input_text', 'input_number', 
+      # Basic UI
+    'title', 'text', 'icon', 'button', 'input_text', 'input_number', 
     'select', 'checkbox', 'slider',
     
     # Layout
