@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "yoguido"
-version = "0.1.8"
+version = "0.1.9"
 description = "The YoGuido Python UI Framework - Vanilla JS, No Dependencies"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -61,7 +61,7 @@ full = [
 yoguido = "yoguido.cli:main"
 
 [project.urls]
-homepage = "https://github.com/yoguido/yoguido"
+homepage = "https://yoguido.com"
 repository = "https://github.com/yoguido/yoguido"
 
 [tool.setuptools]
