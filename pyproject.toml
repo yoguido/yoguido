@@ -28,9 +28,6 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Framework :: FastAPI",
 ]
-homepage = "https://github.com/yoguido/yoguido"
-repository = "https://github.com/yoguido/yoguido"
-
 dependencies = [
     "fastapi>=0.100.0",
     "uvicorn[standard]>=0.20.0",
@@ -64,11 +61,8 @@ full = [
 yoguido = "yoguido.cli:main"
 
 [project.urls]
-Homepage = "https://www.yoguido.com"
-Documentation = "https://docs.yoguido.com"
-Repository = "https://github.com/richardedens/yoguido"
-Issues = "https://github.com/richardedens/yoguido/issues"
-Changelog = "https://github.com/richardedens/yoguido/blob/main/CHANGELOG.md"
+homepage = "https://github.com/yoguido/yoguido"
+repository = "https://github.com/yoguido/yoguido"
 
 [tool.setuptools]
 package-dir = {"" = "src"}  # Add this line - tells setuptools packages are in src/ directory
