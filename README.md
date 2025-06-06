@@ -19,6 +19,12 @@ YoGuido is a lightweight, powerful Python web framework designed to create moder
 - **Lightweight & Fast** - Minimal overhead for maximum performance
 - **Software Sovereign** - Own your stack with zero external dependencies
 
+## 🚀 Lets take a look at an example
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yoguido/repo/main/example/screenshot.png" alt="YoGuido CRM Demo" width="800">
+  <p><em>Interactive demo showing YoGuido's reactive components and hot reloading</em></p>
+</div>
+
 ## 📦 Installation
 
 ```bash
